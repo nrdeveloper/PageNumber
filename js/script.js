@@ -1,5 +1,4 @@
-
-const allUsers = users
+const allUsers = users;
 
 //Set Total of users
 var user = document.getElementsByClassName('page-header');
@@ -41,13 +40,16 @@ pages.map(pages => pages.addEventListener('click', updateData))
 
 //update start and end of range and call Display function
 function updateData(e){
+    if(e.srcElement.innerHTML == 1){
+        ranges.start = 0;
+        ranges.end = 10
+    }else{
     ranges.end = 10 * e.srcElement.innerHTML;
     if (ranges.end > allUsers.length){
         ranges.start =  ranges.end - 10;
         ranges.end = allUsers.length;
         
+        }
     }
-    //ranges.start =  ranges.end - 10;
-    console.log(ranges)
     display()
 }
